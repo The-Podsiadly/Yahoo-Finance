@@ -2,7 +2,7 @@ import time
 st = time.time()
 
 import os, requests
-from .. import praseContent
+from . import parseContent
 
 import asyncio
 import aiohttp
