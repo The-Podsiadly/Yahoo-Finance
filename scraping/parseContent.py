@@ -72,25 +72,37 @@ def main(content, url, tick):
     list['Tick'] = tick
     with open("Data-" + today + ".json", "a+", newline="") as outfile:
         if not JSON:
-            for tbl in root.xpath('.//tbody[@data-reactid="78"]'):
-                el = tbl.xpath('.//tr/td//text()')
-
-                for i, k in enumerate(el):
-                    for cat in categories:
-                        if k == cat and ('(' in el[i+2] or 1 <= int(el[i+2]) <= 9):
-                            list[cat] = el[i+3]
-                        elif k == cat:
-                            list[cat] = el[i+2]
+            
+            # tbl = root.xpath('.//*[@data-reactid="78"]//text()')
+            # print(tbl)
+            # for i, k in enumerate(tbl):
+            #     for cat in categories:
+            #         if k == cat and ('(' in el[i+2] or 1 <= int(el[i+2]) <= 9):
+            #             list[cat] = el[i+3]
+            #             print(f'{cat} | {list[cat]}')
+            #             continue
+            #         elif k == cat:
+            #             list[cat] = el[i+2]
+            #             print(f'{cat} | {list[cat]}')
+            #             continue
+            #
+            #         print(f'{cat} | {k}')
 
             for tbl in root.xpath('.//tbody'):
                 el = tbl.xpath('.//tr/td//text()')
 
+                print(el)
+
                 for i, k in enumerate(el):
                     for cat in categories:
                         if k == cat and ('(' in el[i+2] or 1 <= int(el[i+2]) <= 9):
                             list[cat] = el[i+3]
+                            # print(f'{cat} | {list[cat]}')
+                            continue
                         elif k == cat:
                             list[cat] = el[i+2]
+                            # print(f'{cat} | {list[cat]}')
+                            continue
 
         # else:
             # TODO: Get info from JSON link
