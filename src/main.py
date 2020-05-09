@@ -11,6 +11,7 @@ PB Ratio
 Divident Yield
 """
 
+from bs4 import BeautifulSoup as bs
 import csv
 import getSymbols
 import getURLs
@@ -46,9 +47,9 @@ if __name__ == '__main__':
 
     if not BENCHMARK:
         if TYPE_OF_SCRAPE == 'threading':
-            s_threading.scrape(urls, list)
+            s_threading.scrape(urls, list) # Threading | Downloaded 888 in 82.86505842208862 seconds
 
         elif TYPE_OF_SCRAPE == 'sync':
-            s_sync.scrape(urls)
+            s_sync.scrape(urls) # Not even going to bother! xD
 
     print(f'\nFinished.')

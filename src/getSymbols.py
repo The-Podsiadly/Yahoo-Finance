@@ -1,5 +1,4 @@
 import time
-# st = time.time()
 
 import os, csv, xlrd, re
 
@@ -12,7 +11,6 @@ def getSymbols(dir, filename):
     if fileExtension == '.csv':
         with open(file, "r", newline="", encoding="utf8") as _file:  # Open file to read data
             for line in _file:
-                # TODO: Get rid of spaces
                 l = re.split(',|[|]|;', line)[0].replace('"', "").strip()
 
                 stockTick.append(l)
@@ -29,7 +27,8 @@ def getSymbols(dir, filename):
 
 
 def getFiles(folder):
-    root = os.getcwd()
+    cur = os.getcwd()
+    root = os.path.abspath(os.path.join(cur, os.pardir))
     dir = os.path.join(root,folder)
 
     (_, _, filenames) = next(os.walk(dir), (None, None, []))
@@ -46,8 +45,5 @@ def getList(folder = 'Companies'):
         data = getSymbols(dir, f)
         dataSet.extend(data)
 
-    # dataSet = manipulate(data_sets)
-
-    # print(f'Time to get all ticks: {time.time() - st}')
 
     return dataSet
