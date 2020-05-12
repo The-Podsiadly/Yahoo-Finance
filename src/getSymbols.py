@@ -36,8 +36,7 @@ def getFiles(folder):
     return dir, filenames
 
 
-
-def getList(folder = 'Companies'):
+def getList(folder = 'companies'):
     dir, filenames = getFiles(folder)
 
     dataSet = []
