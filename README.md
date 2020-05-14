@@ -25,6 +25,7 @@ Current list of future additions:
 * Add requirements.txt
 * Comment code
 * MAYBE add GUI??
+* Turn program into a CLI
 
 If you have any additions you'd like to see, let me know. Contributions is encouraged!
 
